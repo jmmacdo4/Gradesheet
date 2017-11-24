@@ -1,2 +1,2 @@
 # Gradesheet
-Implementing a gradesheet using C++ to get familiar with the language
+Implementing a gradesheet using Python to get familiar with the language
