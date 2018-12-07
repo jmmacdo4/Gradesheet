@@ -20,7 +20,7 @@ print '\n'
 numCategories = raw_input("Number of categories: ")
 print '\n'
 categories = list()
-total = 0
+total = 0.0
 for x in range(0, int(numCategories)):
     name = raw_input("Category " + str(x+1) + ": ")
     print '\n'
@@ -28,10 +28,13 @@ for x in range(0, int(numCategories)):
     print '\n'
     weight = raw_input("Weight of category (Ex: 15 = 15%) " + ": ")
     print '\n'
+    if '/' in weight:
+        weight = float(weight.split('/')[0]) / float(weight.split('/')[1])
+        weight *= 100
     categories.append(Category(name, num, weight))
-    total += int(weight)
+    total += float(weight)
 # All totals must equal 100 because they are percents
-if ( int(total) != 100 ):
+if ( float(total) < 99 or float(total) > 101   ):
     raise ValueError('Your weights did not add up to 100')
 
 # This is where we actually create the workbook and populate
